@@ -1,20 +1,18 @@
-// @flow
-
 import { css } from 'styled-components';
 
 import { TRANSITION_DURATION, PHONE_MIN_WIDTH, TABLET_MIN_WIDTH, DESKTOP_MIN_WIDTH } from './constants';
 
-const sizes = {
+const SIZES = {
   phone: PHONE_MIN_WIDTH,
   tablet: TABLET_MIN_WIDTH,
   desktop: DESKTOP_MIN_WIDTH,
 };
 
-export const Media = Object.entries(sizes).reduce(
+export const Media = Object.entries(SIZES).reduce(
   (obj, [label, size]) => ({
     ...obj,
     [label]: (...args) => css`
-      @media only screen and (min-width: ${size}px) {
+      @media only screen and (min-width: ${SIZES}px) {
         ${css(...args)};
       }
     `,
@@ -70,49 +68,8 @@ export const container = css`
   `};
 `;
 
-export const title32 = () => css`
-  ${font({ fz: '24px', lh: '36px', fw: 500 })}
-  
-  ${Media.desktop`
-    ${font({ fz: '32px', lh: '48px' })}
-  `};
-`;
-
-export const title24 = () => css`
-  ${font({ fz: '17px', lh: '28px', fw: 500 })}
-  
-  ${Media.desktop`
-    ${font({ fz: '24px', lh: '36px' })}
-  `};
-`;
-
-export const title17 = () => css`
-  ${font({ fz: '17px', lh: '28px', fw: 500 })}
-`;
-
-export const title13 = () => css`
-  ${font({ fz: '13px', lh: '20px', fw: 500 })}
-`;
-
-export const body15 = () => css`
-  ${font({ fz: '15px', lh: '24px', fw: 400 })}
-`;
-
-export const body13 = () => css`
-  ${font({ fz: '13px', lh: '20px', fw: 400 })}
-`;
-
-export const caption13 = () => css`
-  ${font({ fz: '13px', lh: '20px', fw: 400 })}
-`;
-
-export const caption11 = () => css`
-  ${font({ fz: '11px', lh: '20px', fw: 400 })}
-`;
-
-export const badge10 = () => css`
-  ${font({ fz: '10px', lh: '12px', fw: 700 })}
-  letter-spacing: 12%;
+export const font32 = () => css`
+  ${font({ fz: '32px', lh: '26px', fw: 400 })}
 `;
 
 export const transition = (prop = 'all', duration = TRANSITION_DURATION, timingFunc, delay) => css`

@@ -1,3 +1,5 @@
+import moment from 'moment/min/moment-with-locales';
+
 export function getNoun(n, one, two, five) {
   let number = Math.abs(n);
   number %= 100;
@@ -20,3 +22,5 @@ export const hexToRgb = (hex, alpha) => {
 
   return `rgb(${r}, ${g}, ${b})`;
 };
+
+export const formatDate = (date, format) => moment(date).locale('ru').format(format);

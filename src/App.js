@@ -1,8 +1,7 @@
 // @flow
 
 import * as React from 'react';
-
-import { LogoIcon } from './icons';
+import styled from 'styled-components';
 
 import SideBar from './components/SideBar';
 import Tickets from './containers/Tickets';
@@ -12,11 +11,10 @@ import { container } from './styles/mixins';
 
 import { tickets } from './tickets.json';
 
-export default class App extends React.Component {
+export default class App extends React.Component<{}> {
   render() {
     return (
       <Container>
-        {/* <LogoIcon /> */}
         <Row>
           <SideBarWrapper>
             <SideBar />
@@ -28,11 +26,11 @@ export default class App extends React.Component {
   }
 }
 
-const SideBarWrapper = Div.extend`
+const SideBarWrapper = styled(Div)`
   margin-right: 20px;
 `;
 
-const Container = Div.extend`
+const Container = styled(Div)`
   ${container}
   padding-top: 50px;
   padding-bottom: 100px;

@@ -5,4 +5,6 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const rootNode = document.getElementById('root');
+
+rootNode && ReactDOM.render(<App />, rootNode);
