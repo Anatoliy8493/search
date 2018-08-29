@@ -11,7 +11,6 @@ export default class SideBar extends React.Component<{}> {
   render() {
     return (
       <Container>
-        <div>SideBar</div>
         <Filters />
       </Container>
     )
@@ -21,5 +20,7 @@ export default class SideBar extends React.Component<{}> {
 const Container = styled(Div)`
   flex-shrink: 0;
   width: 232px;
+  padding: 15px;
+  border-radius: 5px;
   box-shadow: 0 1px 4px #5B89A4;
 `;

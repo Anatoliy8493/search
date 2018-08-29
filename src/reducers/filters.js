@@ -1,5 +1,7 @@
 // @flow
 
+import * as types from '../constants';
+
 import type { Filters } from '../model';
 
 type InitialState = Array<Filters>;
@@ -59,6 +61,10 @@ const initialState = [
 
 export default function (state: InitialState = initialState, action) {
   switch(action.type) {
+    case types.SET_FILTERS:
+      // TODO need to update filters state
+      return state;
+
     default: return state;
   }
 }

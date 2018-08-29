@@ -16,7 +16,7 @@ export type Ticket = {
   price: number,
 };
 
-type Option = {
+export type Option = {
   isActive: boolean,
   label: string,
   value: string,

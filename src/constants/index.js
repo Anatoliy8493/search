@@ -1,2 +1,4 @@
 export const GET_TICKETS = 'GET_TICKETS';
 export const GET_TICKETS_SUCCESS = 'GET_TICKETS_SUCCESS';
+
+export const SET_FILTERS = 'SET_FILTERS';
