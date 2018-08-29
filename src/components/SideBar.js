@@ -6,11 +6,14 @@ import styled from 'styled-components';
 import { Div } from '../primitives';
 import { BLACK } from '../styles/colors';
 
+import Filters from '../containers/Filters';
+
 export default class SideBar extends React.Component<{}> {
   render() {
     return (
       <Container>
         <div>SideBar</div>
+        <Filters />
       </Container>
     )
   }  
