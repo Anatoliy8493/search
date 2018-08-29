@@ -1,21 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// @flow
 
-class App extends Component {
+import * as React from 'react';
+
+import { LogoIcon } from './icons';
+
+import SideBar from './components/SideBar';
+import Tickets from './containers/Tickets';
+
+import { Div, Row } from './primitives';
+import { container } from './styles/mixins';
+
+import { tickets } from './tickets.json';
+
+export default class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Container>
+        {/* <LogoIcon /> */}
+        <Row>
+          <SideBarWrapper>
+            <SideBar />
+          </SideBarWrapper>
+          <Tickets tickets={tickets} />
+        </Row>
+      </Container>
     );
   }
 }
 
-export default App;
+const SideBarWrapper = Div.extend`
+  margin-right: 20px;
+`;
+
+const Container = Div.extend`
+  ${container}
+  padding-top: 50px;
+  padding-bottom: 100px;
+`;
