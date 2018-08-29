@@ -5,8 +5,6 @@ import styled from 'styled-components';
 
 export default class StopsFilter extends React.Component<{}> {
   render() {
-    console.log(this.props)
-
     return (
       <Button>StopsFilter</Button>
     )

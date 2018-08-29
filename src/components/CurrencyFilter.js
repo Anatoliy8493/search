@@ -5,8 +5,6 @@ import styled from 'styled-components';
 
 export default class CurrencyFilter extends React.Component<{}> {
   render() {
-    console.log(this.props)
-
     return (
       <Button>CurrencyFilter</Button>
     )

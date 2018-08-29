@@ -1,7 +1,7 @@
 {
   "tickets": [{
     "id": 1,
-    "airline_logo": "https://www.complaintsdepartment.co.uk/image/889/600/turkish-airlines.png",
+    "airline_logo": "https://pics.avs.io/340/100/TK.png",
     "origin": "VVO",
     "origin_name": "Владивосток",
     "destination": "TLV",
@@ -15,7 +15,7 @@
     "price": 12400
   }, {
     "id": 2,
-    "airline_logo": "https://www.complaintsdepartment.co.uk/image/889/600/turkish-airlines.png",
+    "airline_logo": "https://pics.avs.io/340/100/TK.png",
     "origin": "VVO",
     "origin_name": "Владивосток",
     "destination": "TLV",
@@ -29,7 +29,7 @@
     "price": 13100
   }, {
     "id": 3,
-    "airline_logo": "https://www.complaintsdepartment.co.uk/image/889/600/turkish-airlines.png",
+    "airline_logo": "https://pics.avs.io/340/100/TK.png",
     "origin": "VVO",
     "origin_name": "Владивосток",
     "destination": "TLV",
@@ -43,7 +43,7 @@
     "price": 15300
   }, {
     "id": 4,
-    "airline_logo": "https://www.complaintsdepartment.co.uk/image/889/600/turkish-airlines.png",
+    "airline_logo": "https://pics.avs.io/340/100/TK.png",
     "origin": "VVO",
     "origin_name": "Владивосток",
     "destination": "TLV",
@@ -57,7 +57,7 @@
     "price": 11000
   }, {
     "id": 5,
-    "airline_logo": "https://www.complaintsdepartment.co.uk/image/889/600/turkish-airlines.png",
+    "airline_logo": "https://pics.avs.io/340/100/TK.png",
     "origin": "VVO",
     "origin_name": "Владивосток",
     "destination": "TLV",
@@ -71,7 +71,7 @@
     "price": 13400
   }, {
     "id": 6,
-    "airline_logo": "https://www.complaintsdepartment.co.uk/image/889/600/turkish-airlines.png",
+    "airline_logo": "https://pics.avs.io/340/100/TK.png",
     "origin": "VVO",
     "origin_name": "Владивосток",
     "destination": "TLV",
@@ -85,7 +85,7 @@
     "price": 12450
   }, {
     "id": 7,
-    "airline_logo": "https://www.complaintsdepartment.co.uk/image/889/600/turkish-airlines.png",
+    "airline_logo": "https://pics.avs.io/340/100/TK.png",
     "origin": "VVO",
     "origin_name": "Владивосток",
     "destination": "TLV",
@@ -99,7 +99,7 @@
     "price": 13600
   }, {
     "id": 8,
-    "airline_logo": "https://www.complaintsdepartment.co.uk/image/889/600/turkish-airlines.png",
+    "airline_logo": "https://pics.avs.io/340/100/TK.png",
     "origin": "VVO",
     "origin_name": "Владивосток",
     "destination": "TLV",
@@ -113,7 +113,7 @@
     "price": 14250
   }, {
     "id": 9,
-    "airline_logo": "https://www.complaintsdepartment.co.uk/image/889/600/turkish-airlines.png",
+    "airline_logo": "https://pics.avs.io/340/100/TK.png",
     "origin": "VVO",
     "origin_name": "Владивосток",
     "destination": "TLV",
@@ -127,7 +127,7 @@
     "price": 16700
   }, {
     "id": 10,
-    "airline_logo": "https://www.complaintsdepartment.co.uk/image/889/600/turkish-airlines.png",
+    "airline_logo": "https://pics.avs.io/340/100/TK.png",
     "origin": "VVO",
     "origin_name": "Владивосток",
     "destination": "TLV",

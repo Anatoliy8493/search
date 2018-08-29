@@ -1,15 +1,6 @@
 // @flow
 
-type Option = {
-  isActive: boolean,
-  label: string,
-  value: string,
-}
-
-type Filters = {
-  type: string,
-  options: Array<Option>
-}
+import type { Filters } from '../model';
 
 type InitialState = Array<Filters>;
 

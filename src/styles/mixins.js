@@ -57,19 +57,24 @@ export const rounded = css`
 
 export const container = css`
   width: 100%;
-  max-width: 1376px;
-  padding-right: 16px;
-  padding-left: 16px;
+  max-width: 818px;
   margin: 0 auto;
-  
-  ${Media.desktop`
-    padding-left: 32px;
-    padding-right: 32px;
-  `};
 `;
 
 export const font32 = () => css`
   ${font({ fz: '32px', lh: '26px', fw: 400 })}
+`;
+
+export const font16 = () => css`
+  ${font({ fz: '16px', lh: '22px', fw: 400 })}
+`;
+
+export const font12 = () => css`
+  ${font({ fz: '12px', lh: '18px', fw: 400 })}
+`;
+
+export const font10 = () => css`
+  ${font({ fz: '10px', lh: '12px', fw: 400 })}
 `;
 
 export const transition = (prop = 'all', duration = TRANSITION_DURATION, timingFunc, delay) => css`

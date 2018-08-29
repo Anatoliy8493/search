@@ -3,8 +3,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { BLACK } from '../styles/colors';
-
 type P = {
   theme?: string,
   display?: string,

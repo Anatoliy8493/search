@@ -15,3 +15,16 @@ export type Ticket = {
   stops: number,
   price: number,
 };
+
+type Option = {
+  isActive: boolean,
+  label: string,
+  value: string,
+}
+
+export type Filter = {
+  type: string,
+  options: Array<Option>
+}
+
+export type Filters = Array<Filter>;

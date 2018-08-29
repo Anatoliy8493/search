@@ -4,7 +4,6 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { Div } from '../primitives';
-import { BLACK } from '../styles/colors';
 
 import Filters from '../containers/Filters';
 
@@ -22,5 +21,5 @@ export default class SideBar extends React.Component<{}> {
 const Container = styled(Div)`
   flex-shrink: 0;
   width: 232px;
-  box-shadow: 0 2px 4px ${BLACK};
+  box-shadow: 0 1px 4px #5B89A4;
 `;

@@ -5,6 +5,7 @@
   "dependencies": {
     "compose": "^0.1.2",
     "moment": "^2.22.2",
+    "moment-timezone": "^0.5.21",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",

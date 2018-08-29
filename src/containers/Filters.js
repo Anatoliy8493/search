@@ -4,7 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { Div, Column } from './../primitives';
+import { Column } from './../primitives';
 
 import CurrencyFilter from '../components/CurrencyFilter';
 import StopsFilter from '../components/StopsFilter';
@@ -16,10 +16,12 @@ class Filters extends React.Component<{}> {
     return filters.map(f => {
       switch(f.type) {
         case 'currency':
-          return <CurrencyFilter {...f} />
+          return <CurrencyFilter key={f.type} {...f} />
 
         case 'stops':
-          return <StopsFilter {...f} />
+          return <StopsFilter key={f.type} {...f} />
+
+        default: return null;
       }
     })
   }
