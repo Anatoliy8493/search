@@ -12,7 +12,7 @@ type P = {
   children: React.Element<*>,
 };
 
-export default class extends React.Component<P> {
+export default class extends React.PureComponent<P> {
   static defaultProps = {
     theme: 'orange',
     display: 'inline-block'

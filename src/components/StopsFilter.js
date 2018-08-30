@@ -14,16 +14,16 @@ type S = {
   hovered: boolean,
 };
 
-export default class StopsFilter extends React.Component<P, S> {
+export default class StopsFilter extends React.PureComponent<P, S> {
   render() {
-    const { onClick, options } = this.props;
+    const { onClick, options, type } = this.props;
 
     return (
       <Container>
         <Title>Количество пересадок</Title>
         {options.map(o => (
-          <FilterRow>
-            <Checkbox value={o.value} label={o.label} checked={o.isActive} />
+          <FilterRow key={o.value}>
+            <Checkbox value={o.value} label={o.label} checked={o.isActive} onClick={value => onClick(type, value)} />
             <Only>только</Only>
           </FilterRow>
         ))}
@@ -62,7 +62,6 @@ const FilterRow = styled(Row)`
     }
   }
 `;
-
 
 const Title = styled.div`
   ${font12}

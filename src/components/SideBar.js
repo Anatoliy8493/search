@@ -7,7 +7,7 @@ import { Div } from '../primitives';
 
 import Filters from '../containers/Filters';
 
-export default class SideBar extends React.Component<{}> {
+export default class SideBar extends React.PureComponent<{}> {
   render() {
     return (
       <Container>

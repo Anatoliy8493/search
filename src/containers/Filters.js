@@ -18,7 +18,7 @@ type P = {
   setFilter: (value: string) => void,
 };
 
-class Filters extends React.Component<P> {
+class Filters extends React.PureComponent<P> {
   renderFilters() {
     const { filters, setFilter } = this.props;
 
@@ -28,7 +28,7 @@ class Filters extends React.Component<P> {
           return <CurrencyFilter key={f.type} {...f} onClick={setFilter} />;
 
         case 'stops':
-          return <StopsFilter key={f.type} {...f} />;
+          return <StopsFilter key={f.type} {...f} onClick={setFilter} />;
 
         default: return null;
       }
@@ -47,7 +47,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setFilter: value => dispatch(setFilter(value)),
+  setFilter: (type, value) => dispatch(setFilter({ type, value })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters)

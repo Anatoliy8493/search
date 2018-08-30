@@ -13,7 +13,7 @@ import Button from './Button';
 
 import type { Ticket as P } from '../model';
 
-export default class Ticket extends React.Component<P> {
+export default class Ticket extends React.PureComponent<P> {
   render() {
     const {
       origin,

@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
+import uniqueId from 'lodash/uniqueId';
 
 import { Row } from '../primitives';
 import { wh, font13, flexAlign } from '../styles/mixins';
@@ -12,26 +13,29 @@ type P = {
   value: string,
   disabled: boolean,
   checked: boolean,
-  onChange: () => void,
+  onClick: (value: string) => void,
 };
 
 export default class extends React.PureComponent<P> {
-  static defaultProps = {
-    onChange: () => {},
-    checked: false,
-    disabled: false,
+  some = () => {
+    debugger
+  };
+
+  componentWillMount = () => {
+    this.id = uniqueId('checkbox-');
   };
 
   render() {
-    const { label, theme, checked, onChange, value, disabled } = this.props;
+    const { label, theme, checked, onClick, value, disabled } = this.props;
 
     return (
       <Checkbox>
         <input
+          id={this.id}
           value={value}
           type="checkbox"
           checked={checked}
-          onChange={onChange}
+          onChange={() => onClick(value)}
           disabled={disabled}
         />
         <Label htmlFor={this.id}>{label}</Label>
@@ -69,10 +73,6 @@ const Label = styled.label`
   }
 `;
 
-const Input = styled.input`
-
-`;
-
 const Checkbox = styled(Row)`
   ${flexAlign('flex-start', 'center')}
   position: relative;
@@ -91,9 +91,5 @@ const Checkbox = styled(Row)`
     background-position: center center;
     background-repeat: no-repeat;
     border: 1px solid #2196F3;
-  }
-
-  & input[type="checkbox"]:focus + label:before {
-    box-shadow: 0 0 5px #2196F3;
   }
 `;

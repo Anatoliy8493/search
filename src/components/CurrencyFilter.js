@@ -15,12 +15,12 @@ type P = {
 
 export default class CurrencyFilter extends React.Component<P> {
   render() {
-    const { onClick, options } = this.props;
+    const { onClick, options, type } = this.props;
 
     return (
       <Container>
         <Title>Валюта</Title>
-        <Toggles options={options} onClick={onClick} />
+        <Toggles options={options} onClick={value => onClick(type, value)} />
       </Container>
     )
   }  

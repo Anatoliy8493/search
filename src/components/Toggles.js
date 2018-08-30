@@ -40,6 +40,7 @@ export default class Toggles extends React.PureComponent<P> {
 
 const Container = styled(Row)`
   width: 100%;
+  margin-left: 1px;
 `;
 
 const activeBaseCss = css`

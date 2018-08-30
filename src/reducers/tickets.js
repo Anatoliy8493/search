@@ -1,9 +1,4 @@
-// @flow
-
-import type { Ticket } from '../model';
 import * as types from '../constants';
-
-type InitialState = Array<Ticket>;
 
 const initialState = [];
 

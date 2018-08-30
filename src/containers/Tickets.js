@@ -22,7 +22,7 @@ type S = {
   loading: boolean,
 };
 
-class Tickets extends React.Component<P, S> {
+class Tickets extends React.PureComponent<P, S> {
   state = { loading: true };
 
   componentWillReceiveProps(nextProps) {
@@ -46,11 +46,12 @@ class Tickets extends React.Component<P, S> {
 
   renderSkeleton() {
     return (
-      <Skeleton count={6} />
+      <Skeleton count={6} type="ticket" />
     );
   }
 
   render() {
+    const { tickets } = this.props;
     const { loading } = this.state;
 
     return (
@@ -61,8 +62,54 @@ class Tickets extends React.Component<P, S> {
   }  
 }
 
-const mapStateToProps = store => ({
-  tickets: store.tickets,
+const filterTicketsByCurrencyFilter = (filteredTickets, f) => {
+  // some logic for currency filters
+  return filteredTickets;
+};
+
+const filterTicketsByStopsFilter = (filteredTickets, f) => {
+  const allActive = f.options.filter(f => f.value === 'all')[0].isActive;
+  const activeStops = f.options.filter(f => f.isActive);
+
+  if (allActive) return filteredTickets;
+  if (!activeStops.length) return [];
+
+  const activeStopsValues = activeStops.map(s => s.value);
+
+  filteredTickets = filteredTickets.filter(t => {
+    return activeStopsValues.includes(t.stops);
+  })
+
+  return filteredTickets;
+};
+
+const prepareTicketsToRender = (tickets, filters) => {
+  if (!tickets.length) return tickets;
+
+  let filteredTickets = tickets;
+
+  filters.forEach(f => {
+    switch(f.type) {
+      case 'stops': {
+        filteredTickets = filterTicketsByStopsFilter(filteredTickets, f);
+        break;
+      }
+
+      case 'currency': {
+        filteredTickets = filterTicketsByCurrencyFilter(filteredTickets, f);
+        break;
+      }
+
+      default:
+        break;
+    }
+  });
+
+  return filteredTickets;
+};
+
+const mapStateToProps = ({ tickets, filters }) => ({
+  tickets: prepareTicketsToRender(tickets, filters),
 });
 
 const mapDispatchToProps = dispatch => ({
