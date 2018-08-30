@@ -8,13 +8,13 @@ import { tickets } from '../tickets.json';
     dispatch({
       type: types.GET_TICKETS,
       payload: [],
-    })
+    });
   
     setTimeout(() => {
       dispatch({
         type: types.GET_TICKETS_SUCCESS,
         payload: tickets,
-      })
-    }, 100);
+      });
+    }, 2000);
   }
 }

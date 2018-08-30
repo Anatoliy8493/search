@@ -2,13 +2,18 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { getTickets } from '../actions/tickets';
 
 import Ticket from './../components/Ticket';
+import Skeleton from './../components/Skeleton';
 
-import { Div, Column } from './../primitives';
+import { WHITE, BLACK } from './../styles/colors';
+import { blink } from './../styles/keyFrames';
+import { Div, Column, Row } from './../primitives';
+import { hexToRgb, getNoun, formatDate } from './../helpers';
+import { wh, font32, font16, flexAlign, font10, font12 } from './../styles/mixins';
 
 import type { Ticket as TicketTypes } from '../model';
 
@@ -22,9 +27,7 @@ type S = {
 };
 
 class Tickets extends React.Component<P, S> {
-  state = {
-    loading: true,
-  };
+  state = { loading: true };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.tickets.length) this.setState({ loading: false });
@@ -46,7 +49,9 @@ class Tickets extends React.Component<P, S> {
   }
 
   renderSkeleton() {
-    return '...loading';
+    return (
+      <Skeleton count={6} />
+    );
   }
 
   render() {

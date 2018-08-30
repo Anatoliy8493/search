@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { TRANSITION_DURATION, PHONE_MIN_WIDTH, TABLET_MIN_WIDTH, DESKTOP_MIN_WIDTH } from './constants';
+import { PHONE_MIN_WIDTH, TABLET_MIN_WIDTH, DESKTOP_MIN_WIDTH } from './constants';
 
 const SIZES = {
   phone: PHONE_MIN_WIDTH,
@@ -9,7 +9,7 @@ const SIZES = {
 };
 
 export const Media = Object.entries(SIZES).reduce(
-  (obj, [label, size]) => ({
+  (obj, [label]) => ({
     ...obj,
     [label]: (...args) => css`
       @media only screen and (min-width: ${SIZES}px) {
@@ -75,8 +75,4 @@ export const font12 = () => css`
 
 export const font10 = () => css`
   ${font({ fz: '10px', lh: '12px', fw: 400 })}
-`;
-
-export const transition = (prop = 'all', duration = TRANSITION_DURATION, timingFunc, delay) => css`
-  transition: ${prop} ${duration} ${timingFunc} ${delay};
 `;

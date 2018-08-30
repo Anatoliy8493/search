@@ -4,7 +4,7 @@ import * as React from 'react';
 import styled, { css } from 'styled-components';
 
 import { Div, Row, Column } from './../primitives';
-import { font12, transition } from '../styles/mixins';
+import { font12 } from '../styles/mixins';
 import { WHITE } from '../styles/colors';
 
 import type { Option } from '../model';

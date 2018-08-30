@@ -9,22 +9,18 @@ import Tickets from './containers/Tickets';
 import { Div, Row } from './primitives';
 import { container } from './styles/mixins';
 
-import { tickets } from './tickets.json';
+const App = () => (
+  <Container>
+    <Row>
+      <SideBarWrapper>
+        <SideBar />
+      </SideBarWrapper>
+      <Tickets />
+    </Row>
+  </Container>
+);
 
-export default class App extends React.Component<{}> {
-  render() {
-    return (
-      <Container>
-        <Row>
-          <SideBarWrapper>
-            <SideBar />
-          </SideBarWrapper>
-          <Tickets tickets={tickets} />
-        </Row>
-      </Container>
-    );
-  }
-}
+export default App;
 
 const SideBarWrapper = styled(Div)`
   margin-right: 20px;

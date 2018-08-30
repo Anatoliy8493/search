@@ -4,10 +4,10 @@ import * as React from 'react';
 import styled, { css } from 'styled-components';
 
 import { PlaneIcon } from '../icons';
-import { WHITE, BLACK } from './../styles/colors';
-import { Div, Row, Column } from './../primitives';
-import { hexToRgb, getNoun, formatDate } from './../helpers';
-import { transition, wh, font32, font16, flexAlign, font10, font12 } from './../styles/mixins';
+import { WHITE, BLACK } from '../styles/colors';
+import { Div, Row, Column } from '../primitives';
+import { hexToRgb, getNoun, formatDate } from '../helpers';
+import { wh, font32, font16, flexAlign, font10, font12 } from '../styles/mixins';
 
 import Button from './Button';
 
@@ -138,11 +138,11 @@ const AirlineLogo = styled.img`
 `;
 
 const Container = styled(Row)`
-  ${transition('box-shadow')}
   width: 565px;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 1px 4px #5B89A4;
+  transition: box-shadow .2s;
 
   &:hover {
     cursor: pointer;
@@ -167,4 +167,4 @@ const Price = styled(Div)`
   color: ${WHITE};
   font-weight: 600;
   font-family: 'Open Sans', sans-serif;
-`
+`;
