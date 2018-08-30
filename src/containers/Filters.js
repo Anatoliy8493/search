@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 import { setFilter } from '../actions/filters';
 
-import { font12 } from './../styles/mixins';
 import { Column } from './../primitives';
 
 import CurrencyFilter from '../components/CurrencyFilter';
@@ -26,20 +25,10 @@ class Filters extends React.Component<P> {
     return filters.map(f => {
       switch(f.type) {
         case 'currency':
-          return (
-            <FilterRow key={f.type}>
-              <Title>Валюта</Title>
-              <CurrencyFilter {...f} onClick={setFilter} />
-            </FilterRow>
-          );
+          return <CurrencyFilter key={f.type} {...f} onClick={setFilter} />;
 
         case 'stops':
-          return (
-            <FilterRow key={f.type}>
-              <Title>Количество пересадок</Title>
-              <StopsFilter {...f} />
-            </FilterRow>
-          )
+          return <StopsFilter key={f.type} {...f} />;
 
         default: return null;
       }
@@ -65,17 +54,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(Filters)
 
 const Container = styled(Column)`
   width: 100%;
-`;
-
-const FilterRow = styled.div`
-  margin-bottom: 30px;
-`;
-
-const Title = styled.div`
-  ${font12}
-  margin-bottom: 10px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #4A4A4A;
 `;

@@ -69,9 +69,18 @@ export const font16 = () => css`
   ${font({ fz: '16px', lh: '22px', fw: 400 })}
 `;
 
+export const font13 = () => css`
+  ${font({ fz: '13px', lh: '18px', fw: 400 })}
+`;
+
 export const font12 = () => css`
   ${font({ fz: '12px', lh: '18px', fw: 400 })}
 `;
+
+export const font11 = () => css`
+  ${font({ fz: '11px', lh: '16px', fw: 400 })}
+`;
+
 
 export const font10 = () => css`
   ${font({ fz: '10px', lh: '12px', fw: 400 })}

@@ -36,7 +36,7 @@ const initialState = [
         value: 'all',
       },
       {
-        isActive: false,
+        isActive: true,
         label: 'Без пересадок',
         value: 0,
       },

@@ -3,7 +3,7 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
 
-import { Div, Row, Column } from './../primitives';
+import { Row } from './../primitives';
 import { font12 } from '../styles/mixins';
 import { WHITE } from '../styles/colors';
 
@@ -23,10 +23,10 @@ export default class Toggles extends React.PureComponent<P> {
         {options.map((o, id) => {
           return (
             <Toggle
-              isFitrst={id === 0}
-              isLast={id === options.length - 1}
               key={o.value}
+              isFitrst={id === 0}
               isActive={o.isActive}
+              isLast={id === options.length - 1}
               onClick={() => onClick(o.value)}
             >
               {o.label}

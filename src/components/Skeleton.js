@@ -3,11 +3,11 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
 
-import { WHITE, BLACK } from './../styles/colors';
+import { BLACK } from './../styles/colors';
 import { blink } from './../styles/keyFrames';
-import { Div, Column, Row } from './../primitives';
-import { hexToRgb, getNoun, formatDate } from './../helpers';
-import { wh, font32, font16, flexAlign, font10, font12 } from './../styles/mixins';
+import { Div, Row } from './../primitives';
+import { hexToRgb } from './../helpers';
+import { wh } from './../styles/mixins';
 
 type P = {
   count: number,
@@ -16,7 +16,7 @@ type P = {
 export default class extends React.Component<P> {
   render() {
     return [...Array(this.props.count).keys()].map(s => (
-      <Skeleton>
+      <Skeleton key={s}>
         <SkeletonLeft>
           <SkeletonLogo />
           <SkeletonButton />

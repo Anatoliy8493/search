@@ -1,7 +1,10 @@
 // @flow
 
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { BLACK } from '../styles/colors';
+import { hexToRgb } from '../helpers';
 
 type P = {
   theme?: string,
@@ -24,15 +27,16 @@ export default class extends React.Component<P> {
   }  
 }
 
-const BG_HASH = {
-  'orange': '#FF8124',
-};
+const THEMES = {
+  'orange': css`
+    background-color: #FF6D00;
 
-const DISPLAY_HASH = {
-  'block': 'block',
-  'inline-block': 'inline-block',
-  'flex': 'flex',
-};
+    &:hover {
+      background-color: #FF8124;
+      box-shadow: 0 1px 0 0 #F7661D, 0 1px 5px 0 ${hexToRgb(BLACK, '.25')};
+    }
+  `,
+}
 
 const Button = styled.button`
   padding: 6px 38px;
@@ -40,11 +44,11 @@ const Button = styled.button`
   overflow: hidden;
   border: none;
   outline: none;
+  transition: background-color .2s, box-shadow .2s;
 
-  background-color: ${props => BG_HASH[props.theme]};
-  display: ${props => DISPLAY_HASH[props.display]};
-
-  ${props => props.display === 'block' ? 'width: 100%' : ''}
+  ${props => `display: ${props.display}`};
+  ${props => props.display === 'block' && 'width: 100%'}
+  ${props => THEMES[props.theme]};
 
   &:hover {
     cursor: pointer;

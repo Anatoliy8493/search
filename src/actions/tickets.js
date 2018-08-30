@@ -15,6 +15,6 @@ import { tickets } from '../tickets.json';
         type: types.GET_TICKETS_SUCCESS,
         payload: tickets,
       });
-    }, 2000);
+    }, 100);
   }
 }
