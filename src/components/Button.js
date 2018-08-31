@@ -10,6 +10,7 @@ type P = {
   theme?: string,
   display?: string,
   children: React.Element<*>,
+  onClick: () => void,
 };
 
 export default class extends React.PureComponent<P> {
@@ -19,10 +20,10 @@ export default class extends React.PureComponent<P> {
   };
 
   render() {
-    const { theme, children, display } = this.props;
+    const { theme, children, display, onClick } = this.props;
 
     return (
-      <Button display={display} theme={theme}>{children}</Button>
+      <Button onClick={onClick} display={display} theme={theme}>{children}</Button>
     )
   }  
 }

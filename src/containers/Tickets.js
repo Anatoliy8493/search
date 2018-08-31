@@ -6,16 +6,20 @@ import styled from 'styled-components';
 
 import { getTickets } from '../actions/tickets';
 
+import Button from './../components/Button';
 import Ticket from './../components/Ticket';
 import Skeleton from './../components/Skeleton';
 
 import { Div, Column } from './../primitives';
+import { font12, font16 } from './../styles/mixins';
+import { WHITE } from './../styles/colors';
 
 import type { Ticket as TicketTypes } from '../model';
 
 type P = {
   tickets: Array<TicketTypes>,
   getTickets: () => void,
+  resetFilters: () => void,
 };
 
 type S = {
@@ -34,14 +38,23 @@ class Tickets extends React.PureComponent<P, S> {
   }
 
   renderTickets() {
-    const { tickets } = this.props;
+    const { tickets, resetFilters } = this.props;
+
+    console.log(resetFilters);
 
     return !!tickets.length
       ? tickets.map(ticket => (
-        <TicketWrapper key={ticket.id}>
-          <Ticket {...ticket} />
-        </TicketWrapper>))
-      : <span>по вашему запросу нет билетов</span>   
+          <TicketWrapper key={ticket.id}>
+            <Ticket {...ticket} />
+          </TicketWrapper>))
+      : (
+        <div>
+          <NotFountTitle>По вашему запросу нет билетов</NotFountTitle>
+          <Button display="inline" onClick={resetFilters}>
+            <NotFountButtonInnerText>Расслабить фильтры</NotFountButtonInnerText>
+          </Button>
+        </div>
+      )
   }
 
   renderSkeleton() {
@@ -51,7 +64,6 @@ class Tickets extends React.PureComponent<P, S> {
   }
 
   render() {
-    const { tickets } = this.props;
     const { loading } = this.state;
 
     return (
@@ -114,12 +126,31 @@ const mapStateToProps = ({ tickets, filters }) => ({
 
 const mapDispatchToProps = dispatch => ({
   getTickets: () => dispatch(getTickets()),
+  resetFilters: () => dispatch({
+    type: 'SET_FILTERS',
+    payload: { value: 'all', type: 'stops' },
+  }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tickets);
 
 const Container = styled(Column)`
   width: 100%;
+`;
+
+const NotFountTitle = styled.div`
+  ${font12}
+  margin-bottom: 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: 8B9497;
+`;
+
+const NotFountButtonInnerText = styled.div`
+  ${font16}
+  color: ${WHITE};
+  font-weight: 600;
+  font-family: Helvetica, sans-serif;
 `;
 
 const TicketWrapper = styled(Div)`
