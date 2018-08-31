@@ -9,10 +9,10 @@ const SIZES = {
 };
 
 export const Media = Object.entries(SIZES).reduce(
-  (obj, [label]) => ({
+  (obj, [label, size]) => ({
     ...obj,
     [label]: (...args) => css`
-      @media only screen and (min-width: ${SIZES}px) {
+      @media only screen and (min-width: ${size}px) {
         ${css(...args)};
       }
     `,
@@ -59,10 +59,19 @@ export const container = css`
   width: 100%;
   max-width: 818px;
   margin: 0 auto;
+  padding: 0 16px;
+  
+  ${Media.desktop`
+    padding: 0;
+  `}
 `;
 
 export const font32 = () => css`
   ${font({ fz: '32px', lh: '26px', fw: 400 })}
+`;
+
+export const font20 = () => css`
+  ${font({ fz: '20px', lh: '24px', fw: 400 })}
 `;
 
 export const font16 = () => css`
@@ -80,7 +89,6 @@ export const font12 = () => css`
 export const font11 = () => css`
   ${font({ fz: '11px', lh: '16px', fw: 400 })}
 `;
-
 
 export const font10 = () => css`
   ${font({ fz: '10px', lh: '12px', fw: 400 })}

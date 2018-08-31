@@ -8,8 +8,8 @@ import { setFilter } from '../actions/filters';
 
 import { Column } from './../primitives';
 
-import CurrencyFilter from '../components/CurrencyFilter';
 import StopsFilter from '../components/StopsFilter';
+import CurrencyFilter from '../components/CurrencyFilter';
 
 import type { Filter } from '../model';
 

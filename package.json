@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "compose": "^0.1.2",
     "eslint-config-airbnb-flow": "^1.0.2",
     "fast-memoize": "^2.5.1",
     "moment": "^2.22.2",
@@ -32,5 +31,21 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.75.0"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anatoliy8493/test.git"
+  },
+  "keywords": [
+    "aviasales",
+    "test"
+  ],
+  "author": "a.kurochkin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anatoliy8493/test/issues"
+  },
+  "homepage": "https://github.com/Anatoliy8493/test#readme"
 }

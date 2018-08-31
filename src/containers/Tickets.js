@@ -11,9 +11,9 @@ import Button from './../components/Button';
 import Ticket from './../components/Ticket';
 import Skeleton from './../components/Skeleton';
 
+import { WHITE } from './../styles/colors';
 import { Div, Column } from './../primitives';
 import { font12, font16 } from './../styles/mixins';
-import { WHITE } from './../styles/colors';
 
 import type { Ticket as TicketTypes } from '../model';
 
@@ -144,14 +144,14 @@ const NotFountTitle = styled.div`
   margin-bottom: 12px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
-  color: 8B9497;
+  color: #8B9497;
 `;
 
 const NotFountButtonInnerText = styled.div`
   ${font16}
-  color: ${WHITE};
   font-weight: 600;
   font-family: Helvetica, sans-serif;
+  color: ${WHITE};
 `;
 
 const TicketWrapper = styled(Div)`

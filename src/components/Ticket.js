@@ -7,7 +7,7 @@ import { PlaneIcon } from '../icons';
 import { WHITE, BLACK } from '../styles/colors';
 import { Div, Row, Column } from '../primitives';
 import { hexToRgb, getNoun, formatDate } from '../helpers';
-import { wh, font32, font16, flexAlign, font10, font12 } from '../styles/mixins';
+import { wh, font32, font16, flexAlign, font10, font12, Media, row, column, font20 } from '../styles/mixins';
 
 import Button from './Button';
 
@@ -68,6 +68,44 @@ export default class Ticket extends React.PureComponent<P> {
   }  
 }
 
+const Container = styled.div`
+  ${column}
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: ${WHITE};
+  box-shadow: 0 1px 4px #5B89A4;
+  transition: box-shadow .2s;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 25px #979797;
+  }
+
+  ${Media.desktop`
+    ${row}
+  `}
+`;
+
+const Left = styled(Div)`
+  flex-shrink: 0;
+  padding: 16px;
+  box-shadow: 1px 0 1px ${hexToRgb(BLACK, '.08')};
+
+  ${Media.desktop`
+    ${wh('200px', '100%')}
+    padding: 25px 20px;
+  `}
+`;
+
+const Rigth = styled(Div)`
+  padding: 16px;
+
+  ${Media.desktop`
+    ${wh('365px', '100%')}
+    padding: 25px 20px;
+  `}
+`;
+
 const Name = styled.div`
   ${font12}
   font-family: 'Open Sans', sans-serif;
@@ -115,20 +153,32 @@ const InfoRow = styled(Row)`
 `;
 
 const timeCss = css`
-  ${font32}
+  ${font20}
   font-weight: 400;
   font-family: 'Open Sans', sans-serif;
   color: #4A4A4A;
+
+  ${Media.tablet`
+    ${font32}
+  `}
 `;
 
 const DepartureTime = styled(Div)`
   ${timeCss}
-  margin-right: 20px;
+  margin-right: 10px;
+
+  ${Media.tablet`
+    margin-right: 20px;
+  `}
 `;
 
 const ArrivalTime = styled(Div)`
   ${timeCss}
-  margin-left: 20px;
+  margin-left: 10px;
+
+  ${Media.tablet`
+    margin-left: 20px;
+  `}
 `;
 
 const AirlineLogo = styled.img`
@@ -137,34 +187,9 @@ const AirlineLogo = styled.img`
   margin: 0 auto 20px;
 `;
 
-const Container = styled(Row)`
-  width: 565px;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 1px 4px #5B89A4;
-  transition: box-shadow .2s;
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: 0 5px 25px #979797;
-  }
-`;
-
-const Left = styled(Div)`
-  ${wh('200px', '100%')}
-  flex-shrink: 0;
-  padding: 25px 20px;
-  box-shadow: 1px 0 1px ${hexToRgb(BLACK, '.08')};
-`;
-
-const Rigth = styled(Div)`
-  ${wh('365px', '100%')}
-  padding: 25px 20px;
-`;
-
 const Price = styled(Div)`
   ${font16}
-  color: ${WHITE};
   font-weight: 600;
   font-family: 'Open Sans', sans-serif;
+  color: ${WHITE};
 `;

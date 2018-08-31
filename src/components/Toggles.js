@@ -4,8 +4,8 @@ import * as React from 'react';
 import styled, { css } from 'styled-components';
 
 import { Row } from './../primitives';
-import { font12 } from '../styles/mixins';
 import { WHITE } from '../styles/colors';
+import { font12 } from '../styles/mixins';
 
 import type { Option } from '../model';
 
@@ -38,11 +38,6 @@ export default class Toggles extends React.PureComponent<P> {
   }  
 }
 
-const Container = styled(Row)`
-  width: 100%;
-  margin-left: 1px;
-`;
-
 const activeBaseCss = css`
   z-index: 1;
   border: 1px solid #2196f3;
@@ -56,6 +51,11 @@ const activeCss = css`
   &:hover {
     ${activeBaseCss}
   }
+`;
+
+const Container = styled(Row)`
+  width: 100%;
+  margin-left: 1px;
 `;
 
 const Toggle = styled.div`

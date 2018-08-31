@@ -1,5 +1,3 @@
-// @flow
-
 import styled from 'styled-components';
 
 import { row, column,  } from '../styles/mixins';

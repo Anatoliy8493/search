@@ -3,8 +3,8 @@
 import * as React from 'react';
 
 type P = {
-  w: number,
-  h: number,
+  w?: number,
+  h?: number,
 };
 
 export default class PlaneIcon extends React.PureComponent<P> {

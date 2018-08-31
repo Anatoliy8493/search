@@ -9,14 +9,15 @@ import { hexToRgb } from '../helpers';
 type P = {
   theme?: string,
   display?: string,
+  onClick?: () => void,
   children: React.Element<*>,
-  onClick: () => void,
 };
 
 export default class extends React.PureComponent<P> {
   static defaultProps = {
     theme: 'orange',
-    display: 'inline-block'
+    display: 'inline-block',
+    onClick: () => {},
   };
 
   render() {
