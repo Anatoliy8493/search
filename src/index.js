@@ -10,22 +10,18 @@ import { compose } from 'compose';
 import rootReducer from './reducers';
 import App from './App';
 
-const composeEnhancers =
-  typeof window === 'object' &&
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
-    : compose;
+/* eslint-disable no-underscore-dangle */
+const composeEnhancers = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+  ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+  : compose;
 
-const enhancer = composeEnhancers(
-  applyMiddleware(thunk),
-);
+const enhancer = composeEnhancers(applyMiddleware(thunk));
 
 const store = createStore(rootReducer, enhancer);
-const rootNode = document.getElementById('root');
 
-rootNode && ReactDOM.render(
+ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  rootNode,
+  window.document.getElementById('root'),
 );

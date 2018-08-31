@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import memoize from 'fast-memoize';
 
 import { getTickets } from '../actions/tickets';
 
@@ -39,8 +40,6 @@ class Tickets extends React.PureComponent<P, S> {
 
   renderTickets() {
     const { tickets, resetFilters } = this.props;
-
-    console.log(resetFilters);
 
     return !!tickets.length
       ? tickets.map(ticket => (
@@ -120,8 +119,10 @@ const prepareTicketsToRender = (tickets, filters) => {
   return filteredTickets;
 };
 
+const memoized = memoize(prepareTicketsToRender);
+
 const mapStateToProps = ({ tickets, filters }) => ({
-  tickets: prepareTicketsToRender(tickets, filters),
+  tickets: memoized(tickets, filters),
 });
 
 const mapDispatchToProps = dispatch => ({

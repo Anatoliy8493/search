@@ -3,18 +3,16 @@ import * as types from '../constants';
 
 import { tickets } from '../tickets.json';
 
- export function getTickets() {
-  return dispatch => {
+export const getTickets = () => (dispatch) => {
+  setTimeout(() => {
     dispatch({
-      type: types.GET_TICKETS,
-      payload: [],
+      type: types.GET_TICKETS_SUCCESS,
+      payload: tickets,
     });
-  
-    setTimeout(() => {
-      dispatch({
-        type: types.GET_TICKETS_SUCCESS,
-        payload: tickets,
-      });
-    }, 100);
-  }
-}
+  }, 100);
+
+  return dispatch({
+    type: types.GET_TICKETS,
+    payload: [],
+  });
+};

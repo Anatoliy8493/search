@@ -47,7 +47,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setFilter: (type, value) => dispatch(setFilter({ type, value })),
+  setFilter: (type, value, only) => dispatch(setFilter({ type, value, only })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters)

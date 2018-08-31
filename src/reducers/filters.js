@@ -63,6 +63,19 @@ export default function (state: InitialState = initialState, action) {
           return state.map(s => {
             switch(s.type) {
               case 'stops':
+                if (payload.only) {
+                  return {
+                    type: payload.type,
+                    options: s.options.map(o => {
+                      return {
+                        isActive: payload.value === o.value,
+                        label: o.label,
+                        value: o.value,
+                      }
+                    }),
+                  };
+                }
+
                 if (payload.value === 'all') {
                   const isAllFilterActive = s.options.filter(o => o.value === 'all')[0].isActive;
 
@@ -102,9 +115,9 @@ export default function (state: InitialState = initialState, action) {
                           label: o.label,
                           value: o.value,
                         }
-                      } {
-                        return o;
                       }
+
+                      return o;
                     }),
                   };
                 }
@@ -131,6 +144,8 @@ export default function (state: InitialState = initialState, action) {
             }
           })
         }
+
+        default: return state;
       }
 
     default: return state;

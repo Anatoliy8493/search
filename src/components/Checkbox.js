@@ -26,7 +26,7 @@ export default class extends React.PureComponent<P> {
   };
 
   render() {
-    const { label, theme, checked, onClick, value, disabled } = this.props;
+    const { label, checked, onClick, value, disabled } = this.props;
 
     return (
       <Checkbox>

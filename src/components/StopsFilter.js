@@ -24,7 +24,7 @@ export default class StopsFilter extends React.PureComponent<P, S> {
         {options.map(o => (
           <FilterRow key={o.value}>
             <Checkbox value={o.value} label={o.label} checked={o.isActive} onClick={value => onClick(type, value)} />
-            <Only>только</Only>
+            {o.value !== 'all' && <Only onClick={() => onClick(type, o.value, true)}>только</Only>}
           </FilterRow>
         ))}
       </Container>
@@ -37,8 +37,11 @@ const Container = styled.div`
   padding-bottom: 15px;
 `;
 
-const Only = styled.div`
+const Only = styled.button`
   ${font11}
+  border: none;
+  outline: none;
+  background: none;
   color: #2196F3;
   text-transform: uppercase;
   transition: opacity .2s;

@@ -7,15 +7,13 @@ import { Div } from '../primitives';
 
 import Filters from '../containers/Filters';
 
-export default class SideBar extends React.PureComponent<{}> {
-  render() {
-    return (
-      <Container>
-        <Filters />
-      </Container>
-    )
-  }  
-}
+const SideBar = () => (
+  <Container>
+    <Filters />
+  </Container>
+);
+
+export default SideBar;
 
 const Container = styled(Div)`
   flex-shrink: 0;
