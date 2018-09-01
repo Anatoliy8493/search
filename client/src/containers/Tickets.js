@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import memoize from 'fast-memoize';
 
-import { getTickets } from '../actions/tickets';
+import { fetchTickets } from '../actions/tickets';
 
 import Button from './../components/Button';
 import Ticket from './../components/Ticket';
@@ -19,7 +19,7 @@ import type { Ticket as TicketTypes } from '../model';
 
 type P = {
   tickets: Array<TicketTypes>,
-  getTickets: () => void,
+  fetchTickets: () => void,
   resetFilters: () => void,
 };
 
@@ -35,7 +35,7 @@ class Tickets extends React.PureComponent<P, S> {
   }
   
   componentDidMount() {
-    this.props.getTickets();
+    this.props.fetchTickets();
   }
 
   renderTickets() {
@@ -126,7 +126,7 @@ const mapStateToProps = ({ tickets, filters }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getTickets: () => dispatch(getTickets()),
+  fetchTickets: () => dispatch(fetchTickets()),
   resetFilters: () => dispatch({
     type: 'SET_FILTERS',
     payload: { value: 'all', type: 'stops' },

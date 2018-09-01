@@ -4,8 +4,8 @@ const initialState = [];
 
 export default function (state: InitialState = initialState, action) {
   switch(action.type) {
-    case types.GET_TICKETS_SUCCESS:
-      return [...state, ...action.payload];
+    case types.FETCH_TICKETS_SUCCESS:
+      return [...state, ...action.payload.tickets];
 
     default: return state;
   }
