@@ -3,8 +3,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { setFilter } from '../actions/filters';
-
 import { Column } from './../primitives';
 
 import StopsFilter from '../components/StopsFilter';

@@ -8,7 +8,7 @@ import Tickets from './containers/Tickets';
 import { PanelIcon, LogoIcon } from './icons';
 
 import { hexToRgb } from './helpers';
-import { Div, Row } from './primitives';
+import { Row } from './primitives';
 import { WHITE, BLACK } from './styles/colors';
 import { container, Media, flexAlign, row, wh } from './styles/mixins';
 

@@ -3,7 +3,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { Div } from '../primitives';
 import { Media } from '../styles/mixins';
 import { WHITE } from '../styles/colors';
 

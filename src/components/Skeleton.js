@@ -5,7 +5,6 @@ import styled, { css } from 'styled-components';
 
 import { BLACK } from './../styles/colors';
 import { blink } from './../styles/keyFrames';
-import { Div } from './../primitives';
 import { hexToRgb } from './../helpers';
 import { wh, Media, row, column } from './../styles/mixins';
 

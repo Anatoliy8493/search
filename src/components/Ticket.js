@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 
 import { PlaneIcon } from '../icons';
 import { WHITE, BLACK } from '../styles/colors';
-import { Div, Row, Column } from '../primitives';
+import { Row, Column } from '../primitives';
 import { hexToRgb, getNoun, formatDate } from '../helpers';
 import { wh, font32, font16, flexAlign, font10, font12, Media, row, column, font20 } from '../styles/mixins';
 

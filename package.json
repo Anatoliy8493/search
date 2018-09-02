@@ -24,8 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "flow": "flow",
-    "dev": "concurrently --kill-others \"npm run client\" \"npm run server\""
+    "start": "concurrently --kill-others \"npm run client\" \"npm run server\"",
+    "flow": "flow"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

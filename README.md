@@ -1,7 +1,13 @@
-### `npm i`
+# Aviasales test
 
-run express server
-### `node server.js`
+### Installing
 
-run client App
-### `cd client & npm i & npm run start`
+```
+npm i
+```
+
+## Getting Started
+
+```
+npm run start
+```

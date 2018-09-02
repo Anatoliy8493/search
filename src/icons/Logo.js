@@ -2,8 +2,6 @@
 
 import * as React from 'react';
 
-import { BLACK } from '../styles/colors';
-
 type P = {
   w?: number,
   h?: number,

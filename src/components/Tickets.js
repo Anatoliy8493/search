@@ -3,14 +3,12 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { fetchTickets } from '../actions/tickets';
-
 import Button from './../components/Button';
 import Ticket from './../components/Ticket';
 import Skeleton from './../components/Skeleton';
 
 import { WHITE } from './../styles/colors';
-import { Div, Column } from './../primitives';
+import { Column } from './../primitives';
 import { font12, font16 } from './../styles/mixins';
 
 import type { Ticket as TicketTypes } from '../model';
