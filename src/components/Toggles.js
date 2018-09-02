@@ -11,7 +11,7 @@ import type { Option } from '../model';
 
 type P = {
   options: Array<Option>,
-  onClick: (value: string) => void,
+  onClick: (value: number | string) => void,
 };
 
 export default class Toggles extends React.PureComponent<P> {

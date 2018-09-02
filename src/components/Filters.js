@@ -12,7 +12,7 @@ import type { Filter } from '../model';
 
 type P = {
   filters: Array<Filter>,
-  setFilter: (value: string) => void,
+  setFilter: () => void,
 };
 
 export default class Filters extends React.PureComponent<P> {

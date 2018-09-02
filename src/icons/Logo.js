@@ -20,8 +20,8 @@ export default class PanelIcon extends React.PureComponent<P> {
       <svg width={w} height={h} viewBox="0 0 82 88" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <linearGradient x1="62.6408134%" y1="94.4451062%" x2="12.602937%" y2="8.70683263%" id="linearGradient-1">
-                <stop stop-color="#1696E9" offset="0%"></stop>
-                <stop stop-color="#1BA1F0" offset="100%"></stop>
+                <stop stopColor="#1696E9" offset="0%"></stop>
+                <stop stopColor="#1BA1F0" offset="100%"></stop>
             </linearGradient>
             <circle id="path-2" cx="30.375" cy="37.875" r="22.125"></circle>
             <filter x="-46.3%" y="-28.2%" width="192.7%" height="192.7%" filterUnits="objectBoundingBox" id="filter-3">
@@ -47,26 +47,26 @@ export default class PanelIcon extends React.PureComponent<P> {
             </filter>
             <path d="M22.9102387,21.6119924 L22.9102387,28.0615817 C22.9102387,28.3167287 22.8907663,28.6114202 22.855413,28.9229845 L26.5525578,31.8496604 C26.8336232,32.072153 26.9093171,32.5028485 26.722649,32.8124563 L26.6331231,32.9609438 C26.4427287,33.2767319 26.0023897,33.4908726 25.6412756,33.4530446 L21.6025708,33.0299755 C21.1167217,34.0015361 20.4124601,35.0451501 19.6288346,35.0451501 C18.8461488,35.0451501 18.1466257,34.0040377 17.6645549,33.0334713 L13.6592218,33.4530446 C13.2981077,33.4908726 12.8577686,33.2767319 12.6673742,32.9609438 L12.5778484,32.8124563 C12.3911802,32.5028485 12.4668742,32.072153 12.7479395,31.8496604 L16.4256265,28.9383874 C16.3883829,28.620809 16.3675805,28.320633 16.3675805,28.0615817 L16.3675805,21.6168385 L2.6744549,22.3156512 C2.32021138,22.3337296 1.81612067,22.1601653 1.53833499,21.9191325 L1.34507719,21.7514439 C1.071859,21.5143743 0.855155303,21.0235215 0.860880454,20.6660497 L0.874264982,19.8303354 C0.880068694,19.4679584 1.13728493,19.0445605 1.45691743,18.8804688 L16.3675805,11.2256912 L16.3675805,5.43595273 C16.3675805,4.53857579 16.6880711,3.16460552 17.1329677,2.37029151 C17.1329677,2.37029151 18.0934447,4.02145499e-14 19.639797,3.90798505e-14 C21.1861492,3.90798505e-14 22.1520098,2.38114912 22.1520098,2.38114912 C22.5707681,3.17089363 22.9102387,4.53293495 22.9102387,5.43595273 L22.9102387,11.1769419 L37.91586,18.8804688 C38.2354925,19.0445605 38.4927088,19.4679584 38.4985125,19.8303354 L38.511897,20.6660497 C38.5176222,21.0235215 38.3009185,21.5143743 38.0277003,21.7514439 L37.8344425,21.9191325 C37.5566568,22.1601653 37.0525661,22.3337296 36.6983226,22.3156512 L22.9102387,21.6119924 Z" id="path-8"></path>
         </defs>
-        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g id="1024" transform="translate(-471.000000, -41.000000)">
                 <g id="Logo" transform="translate(482.000000, 50.000000)">
                     <g id="Group-3" transform="translate(0.000000, 0.140845)">
-                        <g id="Oval" fill="black" fill-opacity="1">
+                        <g id="Oval" fill="black" fillOpacity="1">
                             <use filter="url(#filter-3)" xlinkHref="#path-2"></use>
                         </g>
                         <mask id="mask-5" fill="white">
                             <use xlinkHref="#path-4"></use>
                         </mask>
                         <g id="Oval">
-                            <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlinkHref="#path-4"></use>
-                            <circle stroke="#42A5F5" stroke-width="3.75" stroke-linejoin="square" fill="#2196F3" fill-rule="evenodd" cx="30" cy="30" r="28.125"></circle>
+                            <use fill="black" fillOpacity="1" filter="url(#filter-6)" xlinkHref="#path-4"></use>
+                            <circle stroke="#42A5F5" strokeWidth="3.75" strokeLinejoin="square" fill="#2196F3" fillRule="evenodd" cx="30" cy="30" r="28.125"></circle>
                         </g>
-                        <g id="Group-2" mask="url(#mask-5)" stroke="#42A5F5" stroke-width="3.75">
+                        <g id="Group-2" mask="url(#mask-5)" stroke="#42A5F5" strokeWidth="3.75">
                             <g transform="translate(2.250000, 4.500000)">
-                                <path d="M0.463983051,18.375 L54.2860169,18.375" id="Line" stroke-linecap="square"></path>
-                                <path d="M0.463983051,34.125 L54.2860169,34.125" id="Line" stroke-linecap="square"></path>
-                                <path d="M27,0 C27,0 17.0377575,11.5775355 17.2534527,26.25 C17.4691478,40.9224645 27,51 27,51" id="Path-2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M37.5,0 C37.5,0 27.5377575,11.5775355 27.7534527,26.25 C27.9691478,40.9224645 37.5,51 37.5,51" id="Path-2" stroke-linecap="round" stroke-linejoin="round" transform="translate(32.625000, 25.500000) scale(-1, 1) translate(-32.625000, -25.500000) "></path>
+                                <path d="M0.463983051,18.375 L54.2860169,18.375" id="Line" strokeLinecap="square"></path>
+                                <path d="M0.463983051,34.125 L54.2860169,34.125" id="Line" strokeLinecap="square"></path>
+                                <path d="M27,0 C27,0 17.0377575,11.5775355 17.2534527,26.25 C17.4691478,40.9224645 27,51 27,51" id="Path-2" strokeLinecap="round" strokeLinejoin="round"></path>
+                                <path d="M37.5,0 C37.5,0 27.5377575,11.5775355 27.7534527,26.25 C27.9691478,40.9224645 37.5,51 37.5,51" id="Path-2" strokeLinecap="round" strokeLinejoin="round" transform="translate(32.625000, 25.500000) scale(-1, 1) translate(-32.625000, -25.500000) "></path>
                             </g>
                         </g>
                     </g>

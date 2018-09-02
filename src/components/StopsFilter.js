@@ -8,7 +8,13 @@ import { font11, flexAlign, font12 } from '../styles/mixins';
 
 import Checkbox from './Checkbox';
 
-type P = {};
+import type { Option } from '../model';
+
+type P = {
+  type: string,
+  options: Array<Option>,
+  onClick: (type: string, value: number | string, only?: boolean) => void,
+};
 
 type S = {
   hovered: boolean,

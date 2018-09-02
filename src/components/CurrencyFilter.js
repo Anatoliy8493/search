@@ -9,8 +9,9 @@ import { font12 } from '../styles/mixins';
 import type { Option } from '../model';
 
 type P = {
-  onClick: (value: string) => void,
+  type: string,
   options: Array<Option>,
+  onClick: (type: string, value: number | string) => void,
 };
 
 export default class CurrencyFilter extends React.Component<P> {

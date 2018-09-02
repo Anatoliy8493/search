@@ -9,21 +9,24 @@ import { wh, font13, flexAlign } from '../styles/mixins';
 
 type P = {
   label: string,
-  theme: string,
-  value: string,
+  value: string | number,
   disabled?: boolean,
   checked?: boolean,
-  onClick: (value: string) => void,
+  onClick: (value: string | number) => void,
 };
 
 export default class extends React.PureComponent<P> {
+  id: string;
+
+  constructor(props: P) {
+    super(props);
+
+    this.id = uniqueId('checkbox-');
+  }
+
   static defaultProps = {
     checked: false,
     disabled: false,
-  };
-
-  componentWillMount = () => {
-    this.id = uniqueId('checkbox-');
   };
 
   render() {

@@ -11,7 +11,7 @@ import type { Filter } from '../model';
 
 type P = {
   filters: Array<Filter>,
-  setFilter: (value: string) => void,
+  setFilter: () => void,
 };
 
 class FiltersContainer extends React.PureComponent<P> {

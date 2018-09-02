@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "eslint-config-airbnb-flow": "^1.0.2",
     "express": "^4.16.2",
     "fast-memoize": "^2.5.1",
     "moment": "^2.22.2",
@@ -30,13 +29,13 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-flow": "^6.23.0",
+    "concurrently": "^3.5.0",
     "eslint": "^5.4.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
-    "flow-bin": "^0.75.0",
-    "concurrently": "^3.5.0"
+    "flow-bin": "^0.75.0"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": ".eslintrc.js",
