@@ -1,15 +1,11 @@
 // @flow
 
 import * as React from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { setFilter } from '../actions/filters';
+import setFilter from '../actions/filters';
 
-import { Column } from './../primitives';
-
-import StopsFilter from '../components/StopsFilter';
-import CurrencyFilter from '../components/CurrencyFilter';
+import Filters from '../components/Filters';
 
 import type { Filter } from '../model';
 
@@ -18,26 +14,12 @@ type P = {
   setFilter: (value: string) => void,
 };
 
-class Filters extends React.PureComponent<P> {
-  renderFilters() {
+class FiltersContainer extends React.PureComponent<P> {
+  render() {
     const { filters, setFilter } = this.props;
 
-    return filters.map(f => {
-      switch(f.type) {
-        case 'currency':
-          return <CurrencyFilter key={f.type} {...f} onClick={setFilter} />;
-
-        case 'stops':
-          return <StopsFilter key={f.type} {...f} onClick={setFilter} />;
-
-        default: return null;
-      }
-    })
-  }
-
-  render() {
     return (
-      <Container>{this.renderFilters()}</Container>
+      <Filters filters={filters} setFilter={setFilter} />
     )
   }  
 }
@@ -50,8 +32,4 @@ const mapDispatchToProps = dispatch => ({
   setFilter: (type, value, only) => dispatch(setFilter({ type, value, only })),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filters)
-
-const Container = styled(Column)`
-  width: 100%;
-`;
+export default connect(mapStateToProps, mapDispatchToProps)(FiltersContainer)

@@ -17,7 +17,7 @@ const SideBar = () => (
 
 export default SideBar;
 
-const Container = styled(Div)`
+const Container = styled.div`
   flex-shrink: 0;
   width: 232px;
   border-radius: 5px;

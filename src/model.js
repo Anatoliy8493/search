@@ -13,13 +13,16 @@ export type Ticket = {
   arrival_time: string,
   carrier: string,
   stops: number,
-  price: number,
+  price: {
+    currency: string,
+    value: number,
+  },
 };
 
 export type Option = {
   isActive: boolean,
   label: string,
-  value: string,
+  value: string | number,
 }
 
 export type Filter = {

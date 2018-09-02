@@ -62,7 +62,7 @@ const Ticket = styled.div`
   `}
 `;
 
-const TicketLeft = styled(Div)`
+const TicketLeft = styled.div`
   flex-shrink: 0;
   padding: 16px;
   box-shadow: 1px 0 1px ${hexToRgb(BLACK, '.08')};
@@ -73,7 +73,7 @@ const TicketLeft = styled(Div)`
   `}
 `;
 
-const TicketRigth = styled(Div)`
+const TicketRigth = styled.div`
   padding: 16px;
 
   ${Media.desktop`
@@ -82,7 +82,7 @@ const TicketRigth = styled(Div)`
   `}
 `;
 
-const TicketLogo = styled(Div)`
+const TicketLogo = styled.div`
   ${animationCss}
   ${wh('120px', '35px')}
   margin: 0 auto 20px;
@@ -91,7 +91,7 @@ const TicketLogo = styled(Div)`
   background-color: #cccccc;
 `;
 
-const TicketButton = styled(Div)`
+const TicketButton = styled.div`
   ${animationCss}
   ${wh('100%', '56px')}
   border-radius: 4px;
@@ -99,7 +99,7 @@ const TicketButton = styled(Div)`
   background-color: #cccccc;
 `;
 
-const TicketRow = styled(Div)`
+const TicketRow = styled.div`
   ${animationCss}
   ${wh('100%', '15px')}
   background-color: #cccccc;

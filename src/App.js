@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import SideBar from './components/SideBar';
 import Tickets from './containers/Tickets';
-import { PanelIcon } from './icons';
+import { PanelIcon, LogoIcon } from './icons';
 
 import { hexToRgb } from './helpers';
 import { Div, Row } from './primitives';
@@ -30,6 +30,9 @@ export default class App extends React.PureComponent<{}, S> {
 
     return (
       <Container>
+        <LogoWrapper>
+          <LogoIcon />
+        </LogoWrapper>
         <Overlay show={sideBarVisible} onClick={this.toggleSideBarVisible} />
         <PanelButton onClick={this.toggleSideBarVisible}>
           <PanelIcon />
@@ -45,7 +48,7 @@ export default class App extends React.PureComponent<{}, S> {
   }
 }
 
-const Container = styled(Div)`
+const Container = styled.div`
   ${container}
   padding-top: 20px;
   padding-bottom: 40px;
@@ -58,6 +61,16 @@ const Container = styled(Div)`
   ${Media.desktop`
     padding-top: 50px;
     padding-bottom: 100px;
+  `}
+`;
+
+const LogoWrapper = styled.div`
+  display: none;
+
+  ${Media.desktop`
+    display: block;
+    margin: 0 auto 24px;
+    text-align: center;
   `}
 `;
 
@@ -106,7 +119,7 @@ const Content = styled(Row)`
   position: relative;
 `;
 
-const SideBarWrapper = styled(Div)`
+const SideBarWrapper = styled.div`
   position: absolute;
   z-index: 2;
   transition: transform .2s;

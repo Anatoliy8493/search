@@ -11,14 +11,15 @@ type P = {
   label: string,
   theme: string,
   value: string,
-  disabled: boolean,
-  checked: boolean,
+  disabled?: boolean,
+  checked?: boolean,
   onClick: (value: string) => void,
 };
 
 export default class extends React.PureComponent<P> {
-  some = () => {
-    debugger
+  static defaultProps = {
+    checked: false,
+    disabled: false,
   };
 
   componentWillMount = () => {
@@ -35,8 +36,8 @@ export default class extends React.PureComponent<P> {
           value={value}
           type="checkbox"
           checked={checked}
-          onChange={() => onClick(value)}
           disabled={disabled}
+          onChange={() => onClick(value)}
         />
         <Label htmlFor={this.id}>{label}</Label>
       </Checkbox>

@@ -10,17 +10,3 @@ export const Column = styled.div`
 export const Row = styled.div`
   ${row}
 `;
-
-// Tags
-export const Div = styled.div`
-  color: ${props => props.color || 'inherit'};
-`;
-
-export const Span = styled.span`
-  color: ${props => props.color || 'inherit'};
-`;
-
-export const Img = styled.img`
-  width: 100%;
-  border-style: none;
-`;

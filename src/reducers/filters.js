@@ -1,5 +1,6 @@
 import * as types from '../constants';
 
+// TODO initialize stops filters after tickets fetched
 const initialState = [
   {
     type: 'currency',
@@ -65,7 +66,7 @@ export default function (state: InitialState = initialState, action) {
               case 'stops':
                 if (payload.only) {
                   return {
-                    type: payload.type,
+                    type: 'stops',
                     options: s.options.map(o => {
                       return {
                         isActive: payload.value === o.value,
@@ -80,7 +81,7 @@ export default function (state: InitialState = initialState, action) {
                   const isAllFilterActive = s.options.filter(o => o.value === 'all')[0].isActive;
 
                   return {
-                    type: payload.type,
+                    type: 'stops',
                     options: s.options.map(o => {
                       return {
                         isActive: !isAllFilterActive,
@@ -105,7 +106,7 @@ export default function (state: InitialState = initialState, action) {
                         }
                       } else if (o.value === 'all' && isAllActive) {
                         return {
-                          isActive: !isAllActive,
+                          isActive: false,
                           label: o.label,
                           value: o.value,
                         }
@@ -132,7 +133,7 @@ export default function (state: InitialState = initialState, action) {
             switch(s.type) {
               case 'currency':
                 return {
-                  type: payload.type,
+                  type: 'currency',
                   options: s.options.map(o => ({
                     isActive: o.value === payload.value,
                     label: o.label,

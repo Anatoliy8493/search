@@ -2,18 +2,13 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import memoize from 'fast-memoize';
 
 import { fetchTickets } from '../actions/tickets';
+import { fetchExchangeRates } from '../actions/exchangeRates';
+import resetFilters from '../actions/resetFilters';
 
-import Button from './../components/Button';
-import Ticket from './../components/Ticket';
-import Skeleton from './../components/Skeleton';
-
-import { WHITE } from './../styles/colors';
-import { Div, Column } from './../primitives';
-import { font12, font16 } from './../styles/mixins';
+import Tickets from '../components/Tickets';
 
 import type { Ticket as TicketTypes } from '../model';
 
@@ -21,66 +16,38 @@ type P = {
   tickets: Array<TicketTypes>,
   fetchTickets: () => void,
   resetFilters: () => void,
+  fetchExchangeRates: () => void,
 };
 
-type S = {
-  loading: boolean,
-};
-
-class Tickets extends React.PureComponent<P, S> {
-  state = { loading: true };
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.tickets.length) this.setState({ loading: false });
-  }
-  
+class TicketsContainer extends React.PureComponent<P> {
   componentDidMount() {
     this.props.fetchTickets();
-  }
-
-  renderTickets() {
-    const { tickets, resetFilters } = this.props;
-
-    return !!tickets.length
-      ? tickets.map(ticket => (
-          <TicketWrapper key={ticket.id}>
-            <Ticket {...ticket} />
-          </TicketWrapper>))
-      : (
-        <div>
-          <NotFountTitle>По вашему запросу нет билетов</NotFountTitle>
-          <Button display="inline" onClick={resetFilters}>
-            <NotFountButtonInnerText>Расслабить фильтры</NotFountButtonInnerText>
-          </Button>
-        </div>
-      )
-  }
-
-  renderSkeleton() {
-    return (
-      <Skeleton count={6} type="ticket" />
-    );
+    this.props.fetchExchangeRates();
   }
 
   render() {
-    const { loading } = this.state;
+    const { tickets, resetFilters } = this.props;
 
-    return (
-      <Container>
-        {loading ? this.renderSkeleton() : this.renderTickets()}
-      </Container>
-    )
+    return <Tickets tickets={tickets} resetFilters={resetFilters} />
   }  
 }
 
-const filterTicketsByCurrencyFilter = (filteredTickets, f) => {
-  // some logic for currency filters
-  return filteredTickets;
+const filterTicketsByCurrency = (filteredTickets, filter, exchangeRates) => {
+  const currentCurrency = filter.options.filter(o => o.isActive)[0].value;
+
+  if (!exchangeRates.length) return filteredTickets;
+
+  const ratio = exchangeRates.filter(r => r.currency === currentCurrency)[0].value;
+
+  return filteredTickets.map(t => {
+    // not approved by marketing :D
+    return {...t, ...{ price: { currency: currentCurrency, value: (t.price / ratio).toFixed(0) } }}
+  });
 };
 
-const filterTicketsByStopsFilter = (filteredTickets, f) => {
-  const allActive = f.options.filter(f => f.value === 'all')[0].isActive;
-  const activeStops = f.options.filter(f => f.isActive);
+const filterTicketsByStops = (filteredTickets, filter) => {
+  const allActive = filter.options.filter(o => o.value === 'all')[0].isActive;
+  const activeStops = filter.options.filter(o => o.isActive);
 
   if (allActive) return filteredTickets;
   if (!activeStops.length) return [];
@@ -94,7 +61,7 @@ const filterTicketsByStopsFilter = (filteredTickets, f) => {
   return filteredTickets;
 };
 
-const prepareTicketsToRender = (tickets, filters) => {
+const prepareTicketsToRender = (tickets, filters, exchangeRates) => {
   if (!tickets.length) return tickets;
 
   let filteredTickets = tickets;
@@ -102,12 +69,12 @@ const prepareTicketsToRender = (tickets, filters) => {
   filters.forEach(f => {
     switch(f.type) {
       case 'stops': {
-        filteredTickets = filterTicketsByStopsFilter(filteredTickets, f);
+        filteredTickets = filterTicketsByStops(filteredTickets, f);
         break;
       }
 
       case 'currency': {
-        filteredTickets = filterTicketsByCurrencyFilter(filteredTickets, f);
+        filteredTickets = filterTicketsByCurrency(filteredTickets, f, exchangeRates);
         break;
       }
 
@@ -121,43 +88,15 @@ const prepareTicketsToRender = (tickets, filters) => {
 
 const memoized = memoize(prepareTicketsToRender);
 
-const mapStateToProps = ({ tickets, filters }) => ({
-  tickets: memoized(tickets, filters),
+const mapStateToProps = ({ tickets, filters, exchangeRates }) => ({
+  tickets: memoized(tickets, filters, exchangeRates),
+  exchangeRates,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchTickets: () => dispatch(fetchTickets()),
-  resetFilters: () => dispatch({
-    type: 'SET_FILTERS',
-    payload: { value: 'all', type: 'stops' },
-  }),
+  fetchExchangeRates: () => dispatch(fetchExchangeRates()),
+  resetFilters: () => dispatch(resetFilters()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tickets);
-
-const Container = styled(Column)`
-  width: 100%;
-`;
-
-const NotFountTitle = styled.div`
-  ${font12}
-  margin-bottom: 12px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  color: #8B9497;
-`;
-
-const NotFountButtonInnerText = styled.div`
-  ${font16}
-  font-weight: 600;
-  font-family: Helvetica, sans-serif;
-  color: ${WHITE};
-`;
-
-const TicketWrapper = styled(Div)`
-  margin-bottom: 20px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-`;
+export default connect(mapStateToProps, mapDispatchToProps)(TicketsContainer);

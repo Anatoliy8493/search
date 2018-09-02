@@ -2,6 +2,7 @@ import { put, all, call } from 'redux-saga/effects';
 
 import * as api from '../api';
 import * as ticketsActions from '../actions/tickets';
+import * as exchangeRatesActions from '../actions/exchangeRates';
 
 export function* fetchTickets() {
   try {
@@ -15,8 +16,21 @@ export function* fetchTickets() {
   }
 }
 
+export function* fetchExchangeRates() {
+  try {
+    const data = yield call(api.fetchExchangeRates);
+
+    if (data.ok) {
+      yield put(exchangeRatesActions.fetchExchangeRatesSuccess(data));
+    }
+  } catch (error) {
+    yield put(exchangeRatesActions.fetchExchangeRatesError(error));
+  }
+}
+
 export default function* rootSaga() {
   yield all([
     fetchTickets(),
+    fetchExchangeRates(),
   ])
 }

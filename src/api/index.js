@@ -16,3 +16,15 @@ export const fetchTickets = () => {
   );
 };
 
+export const fetchExchangeRates = () => {
+  const options = {
+    headers,
+    credentials: 'same-origin',
+  };
+
+  return (
+    fetch('/api/exchange-rates', options)
+      .then(response => response.json())
+  );
+};
+

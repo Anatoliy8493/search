@@ -14,6 +14,20 @@ import Button from './Button';
 import type { Ticket as P } from '../model';
 
 export default class Ticket extends React.PureComponent<P> {
+  renderCurrency() {
+    const { price: { value, currency } } = this.props;
+
+    const currencyHash = {
+      'rub': '₽',
+      'usd': '$',
+      'eur': '€',
+    };
+
+    const currentCurrencySymbol = currencyHash[currency] || '';
+
+    return `${value} ${currentCurrencySymbol}`
+  }
+
   render() {
     const {
       origin,
@@ -26,17 +40,16 @@ export default class Ticket extends React.PureComponent<P> {
       arrival_date: arrivalDate,
       arrival_time: arrivalTime,
       stops,
-      price,
     } = this.props;
 
     return (
       <Container>
         <Left>
           <AirlineLogo src={airlineLogo} />
-          <Button display="block">
+          <Button type="responsive">
             <React.Fragment>
               <Price>Купить</Price>
-              <Price>за {price} ₽</Price>
+              <Price>за {this.renderCurrency()}</Price>
             </React.Fragment>
           </Button>
         </Left>
@@ -86,7 +99,7 @@ const Container = styled.div`
   `}
 `;
 
-const Left = styled(Div)`
+const Left = styled.div`
   flex-shrink: 0;
   padding: 16px;
   box-shadow: 1px 0 1px ${hexToRgb(BLACK, '.08')};
@@ -97,7 +110,7 @@ const Left = styled(Div)`
   `}
 `;
 
-const Rigth = styled(Div)`
+const Rigth = styled.div`
   padding: 16px;
 
   ${Media.desktop`
@@ -163,7 +176,7 @@ const timeCss = css`
   `}
 `;
 
-const DepartureTime = styled(Div)`
+const DepartureTime = styled.div`
   ${timeCss}
   margin-right: 10px;
 
@@ -172,7 +185,7 @@ const DepartureTime = styled(Div)`
   `}
 `;
 
-const ArrivalTime = styled(Div)`
+const ArrivalTime = styled.div`
   ${timeCss}
   margin-left: 10px;
 
@@ -187,7 +200,7 @@ const AirlineLogo = styled.img`
   margin: 0 auto 20px;
 `;
 
-const Price = styled(Div)`
+const Price = styled.div`
   ${font16}
   font-weight: 600;
   font-family: 'Open Sans', sans-serif;

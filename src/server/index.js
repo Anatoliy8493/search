@@ -142,11 +142,26 @@ const tickets = [{
   "price": 17400
 }]
 
+const rates = [{
+  currency: "usd",
+  value: 68
+},{
+  currency: "eur",
+  value: 78
+},{
+  currency: "rub",
+  value: 1
+}];
+
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.get('/api/tickets', (req, res) => {
   res.send({ ok: true, tickets: tickets });
+});
+
+app.get('/api/exchange-rates', (req, res) => {
+  res.send({ ok: true, rates: rates });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

@@ -8,23 +8,23 @@ import { hexToRgb } from '../helpers';
 
 type P = {
   theme?: string,
-  display?: string,
+  type?: string,
   onClick?: () => void,
-  children: React.Element<*>,
+  children: React.Node,
 };
 
 export default class extends React.PureComponent<P> {
   static defaultProps = {
     theme: 'orange',
-    display: 'inline-block',
+    type: 'default',
     onClick: () => {},
   };
 
   render() {
-    const { theme, children, display, onClick } = this.props;
+    const { theme, children, type, onClick } = this.props;
 
     return (
-      <Button onClick={onClick} display={display} theme={theme}>{children}</Button>
+      <Button onClick={onClick} type={type} theme={theme}>{children}</Button>
     )
   }  
 }
@@ -40,6 +40,13 @@ const THEMES = {
   `,
 }
 
+const TYPES = {
+  'default': css``,
+  'responsive': css`
+    width: 100%;
+  `,
+}
+
 const Button = styled.button`
   padding: 6px 38px;
   border-radius: 5px;
@@ -48,9 +55,8 @@ const Button = styled.button`
   outline: none;
   transition: background-color .2s, box-shadow .2s;
 
-  ${props => `display: ${props.display}`};
-  ${props => props.display === 'block' && 'width: 100%'}
   ${props => THEMES[props.theme]};
+  ${props => TYPES[props.type]};
 
   &:hover {
     cursor: pointer;
