@@ -90,7 +90,6 @@ const Container = styled.div`
   transition: box-shadow .2s;
 
   &:hover {
-    cursor: pointer;
     box-shadow: 0 5px 25px #979797;
   }
 

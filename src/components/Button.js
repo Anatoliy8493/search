@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import styled, { css } from 'styled-components';
+import Ink from 'react-ink';
 
 import { BLACK } from '../styles/colors';
 import { hexToRgb } from '../helpers';
@@ -24,7 +25,12 @@ export default class extends React.PureComponent<P> {
     const { theme, children, type, onClick } = this.props;
 
     return (
-      <Button onClick={onClick} type={type} theme={theme}>{children}</Button>
+      <Button onClick={onClick} type={type} theme={theme}>
+        <React.Fragment>
+          <Ink opacity={0.08} />
+          {children}
+        </React.Fragment>
+      </Button>
     )
   }  
 }
@@ -48,6 +54,7 @@ const TYPES = {
 }
 
 const Button = styled.button`
+  position: relative;
   padding: 6px 38px;
   border-radius: 5px;
   overflow: hidden;
