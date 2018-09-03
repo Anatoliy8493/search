@@ -70,10 +70,10 @@ export default class Ticket extends React.PureComponent<P> {
               <Name>{`${origin} ${originName}`}</Name>
               <Date>{formatDate(departureDate, 'D MMM YYYY, dd')}</Date>
             </div>
-            <div>
+            <InfoRowRight>
               <Name>{`${destination} ${destinationName}`}</Name>
               <Date>{formatDate(arrivalDate, 'D MMM YYYY, dd')}</Date>
-            </div>
+            </InfoRowRight>
           </InfoRow>
         </Rigth>
       </Container>
@@ -162,6 +162,10 @@ const InfoRow = styled(Row)`
   &:last-child {
     margin-bottom: 0;
   }
+`;
+
+const InfoRowRight = styled.div`
+  text-align: right;
 `;
 
 const timeCss = css`

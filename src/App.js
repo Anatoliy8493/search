@@ -10,7 +10,7 @@ import { PanelIcon, LogoIcon } from './icons';
 import { hexToRgb } from './helpers';
 import { Row } from './primitives';
 import { WHITE, BLACK } from './styles/colors';
-import { container, Media, flexAlign, row, wh } from './styles/mixins';
+import { container, Media, flexAlign, row, wh, rounded } from './styles/mixins';
 
 type S = {
   sideBarVisible: boolean,
@@ -95,10 +95,9 @@ const Overlay = styled.div`
 const PanelButton = styled.button`
   ${row}
   ${flexAlign('center', 'center')}
+  ${rounded}
   padding: 16px;
   margin-bottom: 20px;
-  border-radius: 50%;
-  overflow: hidden;
   border: none;
   background-color: ${WHITE};
   outline: none;
@@ -124,7 +123,10 @@ const SideBarWrapper = styled.div`
   z-index: 2;
   transition: transform .2s;
 
-  ${props => props.show ? 'transform: translateX(0);': 'transform: translateX(-120%);'}
+  ${props => props.show 
+    ? 'transform: translateX(0);'
+    : 'transform: translateX(-120%);'
+  }
 
   ${Media.tablet`
     position: relative;

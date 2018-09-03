@@ -12,6 +12,7 @@
     "react-ink": "^6.4.0",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.5",
+    "react-transition-group": "^2.4.0",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.3.0",
@@ -21,7 +22,6 @@
     "client": "react-scripts start",
     "server": "nodemon src/server/index.js",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "start": "concurrently --kill-others \"npm run client\" \"npm run server\"",
     "flow": "flow"
@@ -41,17 +41,17 @@
   "main": ".eslintrc.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Anatoliy8493/test.git"
+    "url": "git+https://github.com/Anatoliy8493/search.git"
   },
   "keywords": [
     "aviasales",
-    "test"
+    "search"
   ],
   "author": "a.kurochkin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Anatoliy8493/test/issues"
+    "url": "https://github.com/Anatoliy8493/search/issues"
   },
-  "homepage": "https://github.com/Anatoliy8493/test#readme",
+  "homepage": "https://github.com/Anatoliy8493/search#readme",
   "proxy": "http://localhost:5000/"
 }

@@ -54,15 +54,15 @@ const initialState = [
   }
 ];
 
-export default function (state: InitialState = initialState, action) {
+export default function (state = initialState, action) {
   const { type, payload } = action;
 
-  switch(type) {
+  switch (type) {
     case types.SET_FILTERS:
-      switch(payload.type) {
+      switch (payload.type) {
         case 'stops': {
           return state.map(s => {
-            switch(s.type) {
+            switch (s.type) {
               case 'stops':
                 if (payload.only) {
                   return {
@@ -130,7 +130,7 @@ export default function (state: InitialState = initialState, action) {
 
         case 'currency': {
           return state.map(s => {
-            switch(s.type) {
+            switch (s.type) {
               case 'currency':
                 return {
                   type: 'currency',

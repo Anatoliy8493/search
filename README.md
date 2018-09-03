@@ -1,4 +1,4 @@
-# Aviasales test
+# Aviasales search
 
 ### Installing
 

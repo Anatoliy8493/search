@@ -10,4 +10,4 @@ const rootReducer = combineReducers({
   exchangeRates,
 });
 
- export default rootReducer;
+export default rootReducer;

@@ -27,4 +27,3 @@ export const fetchExchangeRates = () => {
       .then(response => response.json())
   );
 };
-
