@@ -1,0 +1,57 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.2",
+    "fast-memoize": "^2.5.1",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.21",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-ink": "^6.4.0",
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.5",
+    "redux": "^4.0.0",
+    "redux-saga": "^0.16.0",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^3.4.5"
+  },
+  "scripts": {
+    "client": "react-scripts start",
+    "server": "nodemon src/server/index.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "start": "concurrently --kill-others \"npm run client\" \"npm run server\"",
+    "flow": "flow"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
+    "concurrently": "^3.5.0",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "flow-bin": "^0.75.0"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anatoliy8493/test.git"
+  },
+  "keywords": [
+    "aviasales",
+    "test"
+  ],
+  "author": "a.kurochkin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anatoliy8493/test/issues"
+  },
+  "homepage": "https://github.com/Anatoliy8493/test#readme",
+  "proxy": "http://localhost:5000/"
+}
