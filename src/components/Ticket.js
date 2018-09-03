@@ -4,9 +4,9 @@ import * as React from 'react';
 import styled, { css } from 'styled-components';
 
 import { PlaneIcon } from '../icons';
-import { WHITE, BLACK } from '../styles/colors';
 import { Row, Column } from '../primitives';
 import { hexToRgb, getNoun, formatDate } from '../helpers';
+import { WHITE, BLACK, TUNDORA, IRON, OSLO_GRAY, HORIZON } from '../styles/colors';
 import { wh, font32, font16, flexAlign, font10, font12, Media, row, column, font20 } from '../styles/mixins';
 
 import Button from './Button';
@@ -86,11 +86,11 @@ const Container = styled.div`
   border-radius: 5px;
   overflow: hidden;
   background-color: ${WHITE};
-  box-shadow: 0 1px 4px #5B89A4;
+  box-shadow: 0 1px 4px ${hexToRgb(HORIZON, '.25')};
   transition: box-shadow .2s;
 
   &:hover {
-    box-shadow: 0 5px 25px #979797;
+    box-shadow: 0 5px 25px ${hexToRgb(HORIZON, '.1')};
   }
 
   ${Media.desktop`
@@ -122,14 +122,14 @@ const Name = styled.div`
   ${font12}
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
-  color: #4A4A4A;
+  color: ${TUNDORA};
 `;
 
 const Date = styled.div`
   ${font12}
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
-  color: #8B9497;
+  color: ${OSLO_GRAY};
 `;
 
 const Stops = styled(Column)`
@@ -145,14 +145,14 @@ const StopsRow = styled(Row)`
 const StopsLine = styled.div`
   ${wh('100%', '1px')}
   margin-right: 1px;
-  background-color: #D2D5D6;
+  background-color: ${IRON};
 `;
 
 const StopsCount = styled.div`
   ${font10}
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
-  color: #8B9497;
+  color: ${OSLO_GRAY};
 `;
 
 const InfoRow = styled(Row)`
@@ -168,7 +168,7 @@ const timeCss = css`
   ${font20}
   font-weight: 400;
   font-family: 'Open Sans', sans-serif;
-  color: #4A4A4A;
+  color: ${TUNDORA};
 
   ${Media.tablet`
     ${font32}

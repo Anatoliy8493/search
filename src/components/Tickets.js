@@ -7,9 +7,9 @@ import Button from './../components/Button';
 import Ticket from './../components/Ticket';
 import Skeleton from './../components/Skeleton';
 
-import { WHITE } from './../styles/colors';
 import { Column } from './../primitives';
 import { font12, font16 } from './../styles/mixins';
+import { WHITE, OSLO_GRAY } from './../styles/colors';
 
 import type { Ticket as TicketTypes } from '../model';
 
@@ -73,13 +73,12 @@ const NotFoundTitle = styled.div`
   margin-bottom: 12px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
-  color: #8B9497;
+  color: ${OSLO_GRAY};
 `;
 
 const NotFoundButtonInnerText = styled.div`
   ${font16}
   font-weight: 600;
-  font-family: Helvetica, sans-serif;
   color: ${WHITE};
 `;
 

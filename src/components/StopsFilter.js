@@ -4,6 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { Row } from '../primitives';
+import { TUNDORA, DODGER_BLUE, TWILIGHT_BLUE } from '../styles/colors';
 import { font11, flexAlign, font12 } from '../styles/mixins';
 
 import Checkbox from './Checkbox';
@@ -48,7 +49,7 @@ const Only = styled.button`
   border: none;
   outline: none;
   background: none;
-  color: #2196F3;
+  color: ${DODGER_BLUE};
   text-transform: uppercase;
   transition: opacity .2s;
   opacity: 0;
@@ -64,7 +65,7 @@ const FilterRow = styled(Row)`
   transform: background-color .2s;
 
   &:hover {
-    background-color: #F1FCFF;
+    background-color: ${TWILIGHT_BLUE};
 
     ${Only} {
       opacity: 1;
@@ -79,5 +80,5 @@ const Title = styled.div`
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
-  color: #4A4A4A;
+  color: ${TUNDORA};
 `;

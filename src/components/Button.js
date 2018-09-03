@@ -4,8 +4,8 @@ import * as React from 'react';
 import styled, { css } from 'styled-components';
 import Ink from 'react-ink';
 
-import { BLACK } from '../styles/colors';
 import { hexToRgb } from '../helpers';
+import { BLACK, BLAZE_ORANGE, PUMPKIN, ECSTASY } from '../styles/colors';
 
 type P = {
   theme?: string,
@@ -37,11 +37,11 @@ export default class extends React.PureComponent<P> {
 
 const THEMES = {
   'orange': css`
-    background-color: #FF6D00;
+    background-color: ${BLAZE_ORANGE};
 
     &:hover {
-      background-color: #FF8124;
-      box-shadow: 0 1px 0 0 #F7661D, 0 1px 5px 0 ${hexToRgb(BLACK, '.25')};
+      background-color: ${PUMPKIN};
+      box-shadow: 0 1px 0 0 ${ECSTASY}, 0 1px 5px 0 ${hexToRgb(BLACK, '.25')};
     }
   `,
 }

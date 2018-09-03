@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import Toggles from './Toggles';
 import { font12 } from '../styles/mixins';
+import { TUNDORA } from '../styles/colors';
 
 import type { Option } from '../model';
 
@@ -38,5 +39,5 @@ const Title = styled.div`
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
-  color: #4A4A4A;
+  color: ${TUNDORA};
 `;

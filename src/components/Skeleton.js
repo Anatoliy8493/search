@@ -3,10 +3,10 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
 
-import { BLACK } from './../styles/colors';
 import { blink } from './../styles/keyFrames';
 import { hexToRgb } from './../helpers';
 import { wh, Media, row, column } from './../styles/mixins';
+import { BLACK, SILVER, HORIZON } from './../styles/colors';
 
 type P = {
   count: number,
@@ -47,7 +47,7 @@ const Ticket = styled.div`
   ${wh('100%', '247px')}
   ${column}
   margin-bottom: 20px;
-  box-shadow: 0 1px 4px #5B89A4;
+  box-shadow: 0 1px 4px ${HORIZON};
   border-radius: 5px;
   overflow: hidden;
 
@@ -87,7 +87,7 @@ const TicketLogo = styled.div`
   margin: 0 auto 20px;
   border-radius: 4px;
   overflow: hidden;
-  background-color: #cccccc;
+  background-color: ${SILVER};
 `;
 
 const TicketButton = styled.div`
@@ -95,13 +95,13 @@ const TicketButton = styled.div`
   ${wh('100%', '56px')}
   border-radius: 4px;
   overflow: hidden;
-  background-color: #cccccc;
+  background-color: ${SILVER};
 `;
 
 const TicketRow = styled.div`
   ${animationCss}
   ${wh('100%', '15px')}
-  background-color: #cccccc;
+  background-color: ${SILVER};
   margin-bottom: 16px;
   border-radius: 4px;
   overflow: hidden;

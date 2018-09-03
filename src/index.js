@@ -8,8 +8,9 @@ import rootSaga from './sagas'
 import rootReducer from './reducers';
 import App from './App';
 
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 
+/* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
   applyMiddleware(sagaMiddleware),

@@ -4,8 +4,8 @@ import * as React from 'react';
 import styled, { css } from 'styled-components';
 
 import { Row } from './../primitives';
-import { WHITE } from '../styles/colors';
 import { font12 } from '../styles/mixins';
+import { WHITE, DODGER_BLUE, IRON, TWILIGHT_BLUE } from '../styles/colors';
 
 import type { Option } from '../model';
 
@@ -40,8 +40,8 @@ export default class Toggles extends React.PureComponent<P> {
 
 const activeBaseCss = css`
   z-index: 1;
-  border: 1px solid #2196f3;
-  background-color: #2196F3;
+  border: 1px solid ${DODGER_BLUE};
+  background-color: ${DODGER_BLUE};
   color: ${WHITE};
 `;
 
@@ -62,15 +62,15 @@ const Toggle = styled.div`
   ${font12}
   margin-left: -1px;
   padding: 9px 21px;
-  border: 1px solid #D2D5D6;
+  border: 1px solid ${IRON};
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
-  color: #2196F3;
+  color: ${DODGER_BLUE};
 
   &:hover {
     z-index: 2;
-    border: 1px solid #2196f3;
-    background-color: #F2FCFF;
+    border: 1px solid ${DODGER_BLUE};
+    background-color: ${TWILIGHT_BLUE};
     cursor: pointer;
   }
 

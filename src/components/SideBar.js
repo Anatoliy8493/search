@@ -4,7 +4,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { Media } from '../styles/mixins';
-import { WHITE } from '../styles/colors';
+import { WHITE, HORIZON } from '../styles/colors';
+import { hexToRgb } from '../helpers';
 
 import Filters from '../containers/Filters';
 
@@ -20,7 +21,7 @@ const Container = styled.div`
   flex-shrink: 0;
   width: 232px;
   border-radius: 5px;
-  box-shadow: 0 1px 4px #5B89A4;
+  box-shadow: 0 1px 4px ${hexToRgb(HORIZON, '.25')};
   background-color: ${WHITE};
 
   ${Media.tablet`

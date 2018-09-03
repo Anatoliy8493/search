@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import uniqueId from 'lodash/uniqueId';
 
 import { Row } from '../primitives';
+import { TUNDORA, DODGER_BLUE, IRON, WHITE } from '../styles/colors';
 import { wh, font13, flexAlign } from '../styles/mixins';
 
 type P = {
@@ -53,26 +54,25 @@ const Label = styled.label`
   position: relative;
   margin-bottom: 0;
   padding-left: 29px;
-  font-family: Helvetica, sans-serif;
-  color: #4A4A4A;
+  color: ${TUNDORA};
   cursor: pointer;
 
   &:before {
     ${wh('17px')}
     content: "";
-    border: 1px solid #D2D5D6;
+    border: 1px solid ${IRON};
     display: block;
     position: absolute;
     top: 0;
     left: 0;
     border-radius: 4px;
-    background-color: white;
+    background-color: ${WHITE};
     transition: background-color .2s, border .2s;
   }
 
   &:hover {
     &:before {
-      border-color: #2196F3;
+      border-color: ${DODGER_BLUE};
     }
   }
 `;
@@ -94,6 +94,6 @@ const Checkbox = styled(Row)`
     background-size: 12px 8px;
     background-position: center center;
     background-repeat: no-repeat;
-    border: 1px solid #2196F3;
+    border: 1px solid ${DODGER_BLUE};
   }
 `;
