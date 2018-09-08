@@ -5,7 +5,8 @@ import styled, { css } from 'styled-components';
 import Ink from 'react-ink';
 
 import { hexToRgb } from '../helpers';
-import { BLACK, BLAZE_ORANGE, PUMPKIN, ECSTASY } from '../styles/colors';
+import { font16 } from '../styles/mixins';
+import { BLACK, BLAZE_ORANGE, PUMPKIN, ECSTASY, WHITE, DODGER_BLUE } from '../styles/colors';
 
 type P = {
   theme?: string,
@@ -44,6 +45,9 @@ const THEMES = {
       box-shadow: 0 1px 0 0 ${ECSTASY}, 0 1px 5px 0 ${hexToRgb(BLACK, '.25')};
     }
   `,
+  'blue': css`
+    background-color: ${DODGER_BLUE};
+  `,
 }
 
 const TYPES = {
@@ -54,12 +58,16 @@ const TYPES = {
 }
 
 const Button = styled.button`
+  ${font16}
   position: relative;
+  min-height: 40px;
   padding: 6px 38px;
   border-radius: 5px;
   overflow: hidden;
   border: none;
   outline: none;
+  font-family: Helvetica, sans-serif;
+  color: ${WHITE};
   transition: background-color .2s, box-shadow .2s;
 
   ${props => THEMES[props.theme]};

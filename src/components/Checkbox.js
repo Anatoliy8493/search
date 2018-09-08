@@ -81,6 +81,7 @@ const Checkbox = styled(Row)`
   ${flexAlign('flex-start', 'center')}
   position: relative;
   height: 21px;
+  font-family: Helvetica, sans-serif;
 
   & input[type="checkbox"] {
     position: absolute;
